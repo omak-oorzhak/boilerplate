@@ -8,7 +8,7 @@ let isProd = process.env.NODE_ENV === 'production'; //true or false
 let cssDev = ['style-loader', 'css-loader', 'sass-loader'];
 let cssProd = ExtractTextPlugin.extract({
   fallback: 'style-loader',
-  loader: ['css-loader', 'sass-loader'],
+  use: ['css-loader', 'sass-loader'],
   publicPath: '/dist'
 });
 let cssConfig = isProd ? cssProd : cssDev;
@@ -17,7 +17,6 @@ module.exports = {
   entry: glob.sync('./src/**/*.+(js|scss|sass|ejs)'),
   output: {
     path: path.resolve(__dirname, "dist"),
-    publicPath: '/',
     filename: "index.bundle.js"
   },
   module: {
@@ -26,14 +25,17 @@ module.exports = {
         test: /\.ejs$/,
         use: ['ejs-compiled-loader']
       },
-      { test: /\.(sass|scss)$/,
+      {
+        test: /\.(sass|scss)$/,
         use: cssConfig
       },
-      { test: /\.js$/,
+      {
+        test: /\.js$/,
         exclude: /node_modules/,
         use: ["babel-loader"]
       },
-      { test: /\.(jpe?g|png|gif|svg)$/i,
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
         use: [
           'file-loader?name=[name].[ext]&outputPath=img/',
           'image-webpack-loader'
@@ -52,9 +54,9 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
       minify: { collapseWhitespace: true },
+      filename: 'index.html',
       hash: true,
       template: './src/pages/index.ejs',
     }),
