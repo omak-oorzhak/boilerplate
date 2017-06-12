@@ -53,6 +53,10 @@ module.exports = {
     open: true
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       minify: { collapseWhitespace: true },
