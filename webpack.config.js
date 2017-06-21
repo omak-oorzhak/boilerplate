@@ -19,11 +19,20 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "index.bundle.js"
   },
+  resolve: {
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js'
+    }
+  },
   module: {
     rules: [
       {
         test: /\.ejs$/,
         use: ['ejs-compiled-loader']
+      },
+      {
+        test: /\.vue$/,
+        use: ['vue-loader']
       },
       {
         test: /\.(sass|scss)$/,
@@ -59,13 +68,13 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      minify: { collapseWhitespace: true },
+      //minify: { collapseWhitespace: true },
       filename: 'index.html',
       hash: true,
       template: './src/pages/index.ejs',
     }),
     new HtmlWebpackPlugin({
-      minify: { collapseWhitespace: true },
+      //minify: { collapseWhitespace: true },
       filename: 'contacts.html',
       hash: true,
       template: './src/pages/contacts.ejs',
