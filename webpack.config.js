@@ -58,7 +58,7 @@ module.exports = {
     publicPath: '/',
     compress: true,
     stats: "errors-only",
-    port: 9000,
+    port: 3000,
     open: true
   },
   plugins: [
