@@ -1,7 +1,7 @@
 <template>
   <div id="lorem">
     <h2>Lorem.vue component</h2>
-    <span>{{ msg }}</span>
+    <p>{{ msg }}</p>
   </div>
 </template>
 
@@ -15,8 +15,8 @@
     }
   }
 </script>
-<style lang="css" scoped>
+<style lang="scss" scoped>
   div {
-    color: #2a7bff;
+    color: #2038ff;
   }
 </style>

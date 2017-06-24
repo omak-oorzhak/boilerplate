@@ -14,10 +14,10 @@ let cssProd = ExtractTextPlugin.extract({
 let cssConfig = isProd ? cssProd : cssDev;
 
 module.exports = {
-  entry: glob.sync('./src/**/*.+(js|scss|sass|ejs)'),
+  entry: glob.sync('./src/**/*.+(js|scss|sass|pug)'),
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "index.bundle.js"
+    filename: "bundle.js"
   },
   resolve: {
     alias: {
@@ -27,8 +27,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ejs$/,
-        use: ['ejs-compiled-loader']
+        test: /\.pug$/,
+        //use: ['html-loader', 'pug-html-loader']
+        use: ['pug-loader']
       },
       {
         test: /\.vue$/,
@@ -62,22 +63,21 @@ module.exports = {
     open: true
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery'
     }),
-    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       //minify: { collapseWhitespace: true },
       filename: 'index.html',
       hash: true,
-      template: './src/pages/index.ejs',
+      template: './src/pages/index.pug',
     }),
     new HtmlWebpackPlugin({
-      //minify: { collapseWhitespace: true },
-      filename: 'contacts.html',
+      filename: 'about.html',
       hash: true,
-      template: './src/pages/contacts.ejs',
+      template: './src/pages/about.pug',
     }),
     new ExtractTextPlugin({
       filename: "index.css",
