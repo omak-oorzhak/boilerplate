@@ -3,15 +3,11 @@
 html {
   height: 100%;
   body {
-    height: 100%;
     color: $textcolor;
-    display: flex;
-    flex-direction: column;
     .content {
-      flex: 1 0 auto;
+      outline: 1px dashed $textcolor;
     }
     .footer {
-	  flex: 0 0 auto;
       outline: 1px dashed red;
     }
   }

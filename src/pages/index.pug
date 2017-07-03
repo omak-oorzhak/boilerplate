@@ -1,14 +1,8 @@
-doctype html
-html(lang="en")
-    head
-        meta(charset = 'utf-8')
-        meta(name='viewport', content="initial-scale=1.0, width=device-width")
-        title Титул
-    body
-        h1 Title
-        .content Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, cupiditate debitis dolorem iste minus nemo obcaecati quia ut vero voluptatem. 1212
-            br
-            #lorem
-            hr
-            a(href="./about.html") About page
-        footer.footer This is footer
+extends layout
+
+block content
+  h1 Main page
+  .content Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, cupiditate debitis dolorem iste minus nemo obcaecati quia ut vero voluptatem.
+  br
+  #lorem
+  a(href="./about.html") About page
