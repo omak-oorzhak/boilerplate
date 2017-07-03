@@ -63,6 +63,7 @@ module.exports = {
     open: true
   },
   plugins: [
+    new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.ProvidePlugin({
       $: 'jquery',
