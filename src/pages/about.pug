@@ -1,12 +1,13 @@
 extends ../layouts/main
+block variables
+  - var title = 'About Title'
 
-block title
-  | About title
 block content
   .content
     h2 About page
     p Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
     br
     a(href="./index.html") Main page
+
 block footer
   footer.footer Footer from about page
