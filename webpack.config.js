@@ -5,10 +5,10 @@ let path = require('path');
 let glob = require("glob");
 
 let isProd = process.env.NODE_ENV === 'production'; //true or false
-let cssDev = ['style-loader', 'css-loader', 'sass-loader'];
+let cssDev = ['style-loader', 'css-loader', 'sass-loader', 'postcss-loader'];
 let cssProd = ExtractTextPlugin.extract({
   fallback: 'style-loader',
-  use: ['css-loader', 'sass-loader'],
+  use: ['css-loader', 'sass-loader', 'postcss-loader'],
   publicPath: '/dist'
 });
 let cssConfig = isProd ? cssProd : cssDev;
