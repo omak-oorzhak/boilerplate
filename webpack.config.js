@@ -67,7 +67,9 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.ProvidePlugin({
       $: 'jquery',
-      jQuery: 'jquery'
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
+      Popper: ['popper.js', 'default'],
     }),
     new HtmlWebpackPlugin({
       //minify: { collapseWhitespace: true },

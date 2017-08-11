@@ -1,4 +1,5 @@
 import 'jquery';
+import 'bootstrap';
 import Vue from 'vue';
 import Lorem from './../components/Lorem.vue';
 
